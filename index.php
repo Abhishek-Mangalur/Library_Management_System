@@ -15,6 +15,7 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         .wc{
             font-size: 2rem;
             margin: 10px;
