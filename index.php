@@ -27,6 +27,7 @@
             justify-content: space-between;
             background-color: grey;
         }
+
         a{
             text-decoration: none;
             color: black;
