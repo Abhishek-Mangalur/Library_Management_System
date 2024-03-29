@@ -24,6 +24,7 @@
             margin: 10px;
             color: #fff;
         }
+        
         .top{
             display: flex;
             justify-content: space-between;
