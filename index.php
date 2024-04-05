@@ -32,6 +32,7 @@
             text-decoration: none;
             color: black;
         }
+
         #login{
             border: 2px solid black;
             padding: 5px 10px;
