@@ -55,6 +55,7 @@
         li:hover{
             text-decoration: underline;
         }
+
         .rect{
             display: flex;
             align-items: center;
