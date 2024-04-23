@@ -67,6 +67,7 @@
             justify-content: space-around;
             margin-top: 30px;
         }
+
         .sqr{
             border: 1px solid black;
             width: 300px;
