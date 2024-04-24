@@ -78,6 +78,7 @@
             display: grid;
             background-color: #DADADA;
         }
+        
         .up{
             padding: 10px;
             border-bottom: 1px solid black;
