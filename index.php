@@ -84,6 +84,7 @@
             border-bottom: 1px solid black;
             font-size: 1.3rem;
         }
+
         .btn{
             border: 1px solid black;
             padding: 5px;
