@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-size: border-box;
+}
+
+body{
+    color: white;
+    background-color: #dbdbdb;
+}
+
+.btn2:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.table1{
+    margin: 0;
+    border: none;
+    width: 200px;
+    background-color: black;
+    color: #fff;
+    padding: 7px;
+    font-size: 1.4em;
+}
+
+.btn2{
+    background-color: red;
+    text-decoration: none;
+    border: 1px solid black;
+    padding: 5px;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.c1{
+    padding: 10px;
+    text-align: center;
+    /* background-color: rgb(187, 189, 190); */
+    color: black;
+    font-size: 1.2em;
+    border: 1px solid black;
+}
+
+.tbl{
+    width: 100%;
+}
+
+tr:nth-child(odd){
+    background-color: burlywood;
+}
