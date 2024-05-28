@@ -58,6 +58,7 @@
         li:hover{
             text-decoration: underline;
         }
+
         .option{
             font-size: 1.5rem;
         }
