@@ -8,6 +8,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="TLb0IXaJWk8C4xntucB6FtLuW-7g0FhM5o_sMMQOeYw" />
+    <meta name="keywords" content="LMSAIT,lmsait,lms ait,LMS AIT">
     <title>Digital Library</title>
     <style>
         *{
@@ -15,24 +17,20 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         .wc{
             font-size: 2rem;
             margin: 10px;
             color: #fff;
         }
-
         .top{
             display: flex;
             justify-content: space-between;
             background-color: grey;
         }
-
         a{
             text-decoration: none;
             color: black;
         }
-
         #login{
             border: 2px solid black;
             padding: 5px 10px;
@@ -41,21 +39,17 @@
             margin: 10px;
             height: 40px;
         }
-
         #login:hover{
             text-decoration: underline;
         }
-
         ul li{
             margin: 10px;
             display: inline-block;
             position: relative;
         }
-
         li:hover{
             text-decoration: underline;
         }
-
         .rect{
             display: flex;
             align-items: center;
@@ -67,7 +61,6 @@
             justify-content: space-around;
             margin-top: 30px;
         }
-
         .sqr{
             border: 1px solid black;
             width: 300px;
@@ -78,24 +71,22 @@
             display: grid;
             background-color: #DADADA;
         }
-        
         .up{
             padding: 10px;
             border-bottom: 1px solid black;
             font-size: 1.3rem;
         }
-
         .btn{
+            font-size: 1.3rem;
             border: 1px solid black;
             padding: 5px;
             border-radius: 5px;
             align-items: end;
             width: 80px;
             height: 35px;
-            margin-left: 10px;
+            margin-left: 5px;
             background-color: #0DCAF0;
         }
-
         .down{
             padding: 20px 0 10px 0;
             font-size: 1.3rem;
@@ -240,7 +231,7 @@
         </div>
         <br><br><hr><br>
         <footer style="text-align: center; font-size: 1.3rem;">
-            &copy; Copyright Reserved by Digital Library <br> 
+            Copyright &copy; Reserved by Digital Library <br> 
             Developed By: Abhishek
         </footer><br>
     </div>
