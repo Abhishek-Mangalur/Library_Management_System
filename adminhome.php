@@ -102,6 +102,7 @@
             margin-left: 10px;
             background-color: #0DCAF0;
         }
+        
         .down{
             padding: 20px 0 10px 0;
             font-size: 1.3rem;
