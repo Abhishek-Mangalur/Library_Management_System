@@ -1,8 +1,8 @@
 <?php
     include "connection.php";
-    // session_start();
-    // if(isset($_SESSION['uname']) && isset($_SESSION['pass']))
-    // {
+    session_start();
+    if(isset($_SESSION['uname']) && isset($_SESSION['pass']))
+    {
 ?>
 
 <?php
@@ -11,22 +11,14 @@
         $aname=$_POST['aname'];
         $title=$_POST['title'];
 
-        $check = "SELECT * FROM author WHERE aname = '$aname' ";
-        $result = mysqli_query($conn, $check);
-
-        if (mysqli_num_rows($result) > 0){
-            echo "<script>alert('Author Already Exists..!')</script>";
-            echo "<script>window.open('insertauthors.php','_self')</script>";
-        }else if(mysqli_num_rows($result) == 0){
-            $sql="INSERT INTO author (aname, title) VALUES('$aname', '$title')";
-            if(mysqli_query($conn, $sql)){
-                echo "<script>alert('New Author Added..!')</script>";
-                echo "<script>window.open('adminhome.php','_self')</script>";
-            }else{
-                echo "error".mysqli_error($conn);
-            }
-            mysqli_close($conn);
+        $sql="INSERT INTO author (aname, title) VALUES('$aname', '$title')";
+        if(mysqli_query($conn, $sql)){
+            echo "<script>alert('New Author Added..!')</script>";
+            echo "<script>window.open('adminhome.php','_self')</script>";
+        }else{
+            echo "error".mysqli_error($conn);
         }
+        mysqli_close($conn);
     }
 ?>
 
@@ -35,6 +27,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="website icon" type="png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2N49mgVGM4hkBJclxFJaWrHTLokFcbPCqOQ&s">
     <title>Authors</title>
     <link rel="stylesheet" href="insertstyle.css">
 </head>
@@ -71,8 +64,8 @@
 </html>
 
 <?php
-// } else{
-//     header("Location: login.php");
-//     exit();
-// }
+} else{
+    header("Location: login.php");
+    exit();
+}
 ?>

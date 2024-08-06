@@ -1,7 +1,14 @@
 <?php
-    $conn = mysqli_connect("localhost", "root", "", "lms");
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "lms";
 
-    if(!$conn){
-        echo "connection failed!";
-    }
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 ?>

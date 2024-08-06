@@ -1,12 +1,9 @@
 <?php
     include "connection.php";
-    $query = "select * from copies";
+    $query = "select * from users";
     $data = mysqli_query($conn,$query);
     $total = mysqli_num_rows($data);
     $result = $data;
-    session_start();
-    if(isset($_SESSION['uname']) && isset($_SESSION['pass']))
-    {
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="website icon" type="png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2N49mgVGM4hkBJclxFJaWrHTLokFcbPCqOQ&s">
-    <title>Copies</title>
+    <title>Users</title>
     <link rel="stylesheet" href="displaystyle.css">
 </head>
 
@@ -24,9 +21,10 @@
         <thead>
             <tr>
                 <th scope="col" class="table1">Sl No</th>
-                <th scope="col" class="table1">Book Title</th>
-                <th scope="col" class="table1">No of Copies</th>
-                <th scope="col" class="table1">Delete</th>
+                <th scope="col" class="table1">User Name</th>
+                <th scope="col" class="table1">Email</th>
+                <th scope="col" class="table1">USN</th>
+                <th scope="col" class="table1">Branch</th>
             </tr>
 
             <?php 
@@ -36,9 +34,10 @@
                     echo "
                     <tr>
                         <td class='c1'>".$i++."</td>
-                        <td class='c1'>".$result['title']."</td>
-                        <td class='c1'>".$result['copi']."</td>
-                        <td class='c1'><a href='deletecopies.php?rn=$result[title]' class='btn2' onclick='showPrompt()'>Delete</a></td>
+                        <td class='c1'>".$result['uname']."</td>
+                        <td class='c1'>".$result['umail']."</td>
+                        <td class='c1'>".$result['usn']."</td>
+                        <td class='c1'>".$result['branch']."</td>
                     </tr>
                     ";
                 }
@@ -48,18 +47,5 @@
             ?>
         </thead>
     </table>
-
-    <script>
-        function showPrompt(){
-            alert("Book Deleted Successfully..!");
-        }
-    </script>
 </body>
 </html>
-
-<?php
-} else{
-    header("Location: login.php");
-    exit();
-}
-?>

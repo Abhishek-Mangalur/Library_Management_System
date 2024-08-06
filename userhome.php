@@ -1,13 +1,18 @@
 <?php
-    session_start();
-    include "connection.php";
-    $user = $_SESSION['uname'];
-    $query = "select * from users where uname = '$user'";
-    $result = mysqli_query($conn,$query); 
-    $results = mysqli_query($conn,$query); 
-    $total = mysqli_num_rows($result);
-    if(isset($_SESSION['uname']) && isset($_SESSION['pass']))
-    {
+session_start();
+include "connection.php";
+
+// Check if the user is logged in
+if (!isset($_SESSION['uname'])) {
+    header("Location: login.php"); // Redirect to login page if not authenticated
+    exit();
+}
+
+$user = $_SESSION['uname'];
+$query = "SELECT * FROM users WHERE uname = '$user'";
+$result = mysqli_query($conn, $query);
+$results = mysqli_query($conn, $query);
+$total = mysqli_num_rows($result);
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +20,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="website icon" type="png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2N49mgVGM4hkBJclxFJaWrHTLokFcbPCqOQ&s">
     <title>Digital Library</title>
     <style>
         *{
@@ -66,10 +72,7 @@
         .rect{
             display: flex;
             align-items: center;
-            /* width: 3000px; */
-            /* height: 400px; */
             background-color: white;
-            /* box-shadow: inset -2px -2px 6px rgba(0,0,0,.5); */
             border-radius: 8%;
             justify-content: space-around;
             margin-top: 30px;
@@ -83,9 +86,10 @@
             background-color: #DADADA;
         }
         .up{
-            padding: 10px;
             border-bottom: 1px solid black;
-            background-image: url('https://www.sandcanyoncc.com/wp-content/uploads/2020/03/no-profile-picture-icon-15.png');
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAaJS0dnDYQ5NkVr30LWhCjQoMLtm6BC0TDA&s');
+            background-size: 300px 300px;
+            border-radius: 10px;
             background-repeat: no-repeat;
             background-position: center;
             height: 300px;
@@ -171,14 +175,12 @@
 <body>
     <div class="main">
         <div class="top">
-            <h2 class="wc">Hello <?php if($result = mysqli_fetch_assoc($result)){
-                                echo "".$result['uname']."";
-                            }else{
-                                echo "No data found";
-                            }
-                        ?></h2>
-            <a href="index.php" id="login" style="
-            color: #fff; background-color: black;">Logout</a>
+            <h2 class="wc">Hello <?php if ($result = mysqli_fetch_assoc($result)) {
+                echo "" . $result['uname'] . "";
+            } else {
+                echo "No data found";
+            } ?></h2>
+            <a href="logout.php" id="login" style="color: #fff; background-color: black;">Logout</a>
         </div><hr>
 
         <div class="main">
@@ -186,7 +188,7 @@
                 <nav class="scrollable-navbar">
                     <ul>
                         <li>
-                            <a href="rmdbooks.php">Recomended Books</a>
+                            <a href="rmdbooks.php">Recommended Books</a>
                         </li>
                     </ul>
                 </nav>
@@ -198,18 +200,18 @@
                 <div class="sqr">
                     <div class="up"></div>
                     <div class="down">
-                    <?php 
-                        if($result = mysqli_fetch_assoc($results)){
+                        <?php
+                        if ($result = mysqli_fetch_assoc($results)) {
                             echo "
-                                Name: ".$result['uname']." <br><br>
-                                USN: ".$result['usn']." <br><br>
-                                Branch: ".$result['branch']." <br><br>
-                                Email: ".$result['umail']."
+                                Name: " . $result['uname'] . " <br><br>
+                                USN: " . $result['usn'] . " <br><br>
+                                Branch: " . $result['branch'] . " <br><br>
+                                Email: " . $result['umail'] . "
                             ";
-                        }else{
+                        } else {
                             echo "No data found";
                         }
-                    ?>
+                        ?>
                     </div>
                 </div>
             </div>
@@ -217,15 +219,8 @@
     </div><br><br><hr>
 
     <footer style="text-align: center; font-size: 1.3rem;">
-        Copyright &copy; Reserved by Digital Library <br> 
+        Copyright &copy; Reserved by Digital Library <br>
         Developed By: Abhishek
     </footer>
 </body>
 </html>
-
-<?php
-} else{
-    header("Location: login.php");
-    exit();
-}
-?>

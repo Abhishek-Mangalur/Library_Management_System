@@ -1,12 +1,12 @@
 <?php
-        include "connection.php";
-        $query = "select * from author";
-        $data = mysqli_query($conn,$query);
-        $total = mysqli_num_rows($data);
-        $result = $data;
-        session_start();
-        if(isset($_SESSION['uname']) && isset($_SESSION['pass']))
-        {
+    include "connection.php";
+    $query = "select * from author";
+    $data = mysqli_query($conn,$query);
+    $total = mysqli_num_rows($data);
+    $result = $data;
+    session_start();
+    if(isset($_SESSION['uname']) && isset($_SESSION['pass']))
+    {
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="website icon" type="png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2N49mgVGM4hkBJclxFJaWrHTLokFcbPCqOQ&s">
     <title>Authors</title>
     <link rel="stylesheet" href="displaystyle.css">
 </head>
@@ -55,6 +56,7 @@
     </script>
 </body>
 </html>
+
 <?php
 } else{
     header("Location: login.php");

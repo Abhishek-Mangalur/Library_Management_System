@@ -4,9 +4,9 @@
     $data = mysqli_query($conn,$query);
     $total = mysqli_num_rows($data);
     $result = $data;
-    // session_start();
-    // if(isset($_SESSION['uname']) && isset($_SESSION['pass']))
-    // {
+    session_start();
+    if(isset($_SESSION['uname']) && isset($_SESSION['pass']))
+    {
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="website icon" type="png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2N49mgVGM4hkBJclxFJaWrHTLokFcbPCqOQ&s">
     <title>Books</title>
     <link rel="stylesheet" href="displaystyle.css">
 </head>
@@ -41,6 +42,10 @@
                         <td class='c1'>".$i++."</td>
                         <td class='c1'><img src='pictures/".$result['img']."' alt='Image' width='100px' height='100px'></td>
                         <td class='c1'>".$result['title']."</td>
+                        <td class='c1'>".$result['bookid']."</td>
+                        <td class='c1'>".$result['pname']."</td>
+                        <td class='c1'>".$result['pyear']."</td>
+                        <td class='c1'>".$result['cat']."</td>
                         <td class='c1'><a href='deletebooks.php?rn=$result[title]' class='btn2' onclick='showPrompt()'>Delete</a></td>
                     </tr>
                     ";
@@ -61,8 +66,8 @@
 </html>
 
 <?php
-// } else{
-//     header("Location: login.php");
-//     exit();
-// }
+} else{
+    header("Location: login.php");
+    exit();
+}
 ?>

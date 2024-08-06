@@ -1,8 +1,8 @@
 <?php
     include "connection.php";
-    // session_start();
-    // if(isset($_SESSION['uname']) && isset($_SESSION['pass']))
-    // {
+    session_start();
+    if(isset($_SESSION['uname']) && isset($_SESSION['pass']))
+    {
 ?>
 
 <?php
@@ -38,6 +38,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="website icon" type="png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2N49mgVGM4hkBJclxFJaWrHTLokFcbPCqOQ&s">
     <title>Users</title>
     <link rel="stylesheet" href="insertstyle.css">
 </head>
@@ -63,8 +64,8 @@
 </html>
 
 <?php
-// } else{
-//     header("Location: login.php");
-//     exit();
-// }
+} else{
+    header("Location: login.php");
+    exit();
+}
 ?>

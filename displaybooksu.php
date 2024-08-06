@@ -5,12 +5,14 @@
     $total = mysqli_num_rows($data);
     $result = $data;
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Books</title>
+    <link rel="website icon" type="png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2N49mgVGM4hkBJclxFJaWrHTLokFcbPCqOQ&s">
+    <title>Users</title>
     <link rel="stylesheet" href="displaystyle.css">
 </head>
 
@@ -23,32 +25,31 @@
                 <th scope="col" class="table1">Title</th>
                 <th scope="col" class="table1">Book Id</th>
                 <th scope="col" class="table1">Publisher Name</th>
-                <th scope="col" class="table1">Published Year</th>
+                <th scope="col" class="table1">Publisher Year</th>
                 <th scope="col" class="table1">Category</th>
             </tr>
-        </thead>
-        <tbody>
+
             <?php 
             if($result){
                 $i=1;
-                while($row = mysqli_fetch_assoc($data)){
+                while($result = mysqli_fetch_assoc($data)){
                     echo "
                     <tr>
                         <td class='c1'>".$i++."</td>
-                        <td class='c1'><img src='pictures/".$row['img']."' alt='Image' width='100px' height='100px'></td>
-                        <td class='c1'>".$row['title']."</td>
-                        <td class='c1'>".$row['bookid']."</td>
-                        <td class='c1'>".$row['pname']."</td>
-                        <td class='c1'>".$row['pyear']."</td>
-                        <td class='c1'>".$row['cat']."</td>
+                        <td class='c1'><img src='pictures/".$result['img']."' alt='Image' width='100px' height='100px'></td>
+                        <td class='c1'>".$result['title']."</td>
+                        <td class='c1'>".$result['bookid']."</td>
+                        <td class='c1'>".$result['pname']."</td>
+                        <td class='c1'>".$result['pyear']."</td>
+                        <td class='c1'>".$result['cat']."</td>
                     </tr>
                     ";
                 }
             }else{
-                echo "<tr><td colspan='7'>No data found</td></tr>";
+                echo "No data found";
             }
             ?>
-        </tbody>
+        </thead>
     </table>
 </body>
 </html>
